@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { NextPage } from "next";
 import { formatEther } from "viem";
@@ -11,10 +12,24 @@ import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
 
-  const { data: vaultAsset } = useScaffoldReadContract({
-    contractName: "DimSumVault",
-    functionName: "asset",
-  });
+  // const { data: vaultAsset } = useScaffoldReadContract({
+  //   contractName: "DimSumVault",
+  //   functionName: "asset",
+  // });
+
+  // useEffect(() => {
+  //   if (vaultAsset) {
+  //     setAssetValue(vaultAsset.toString());
+  //   }
+  // }, [vaultAsset]);
+
+  // const [assetValue, setAssetValue] = useState<string | null>(null);
+
+  // const { data: yourTokenSymbol } = useScaffoldReadContract({
+  //   contractName: "STRANGE",
+  //   functionName: "symbol",
+  //   address: vaultAsset as `0x${string}`,
+  // });
 
   const { data: yourTokenSymbol } = useScaffoldReadContract({
     contractName: "STRANGE",
@@ -46,9 +61,14 @@ const Home: NextPage = () => {
             Your token balance:{" "}
             <div className="inline-flex items-center justify-center">
               {parseFloat(formatEther(yourTokenBalance || 0n)).toFixed(4)}
-              <span className="font-bold ml-1">yourTokenSymbol</span>
+              <span className="font-bold ml-1">{yourTokenSymbol}</span>
             </div>
           </div>
+
+          {/* <div>
+            Asset value: <div className="inline-flex items-center justify-center">{assetValue || "Loading..."}</div>
+          </div> */}
+
           {/* Vendor Balances */}
           <hr className="w-full border-secondary my-3" />
           <div>
