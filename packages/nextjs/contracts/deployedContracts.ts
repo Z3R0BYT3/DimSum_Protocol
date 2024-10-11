@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     STRANGE: {
-      address: "0x12975173B87F7595EE45dFFb2Ab812ECE596Bf84",
+      address: "0x8ce361602B935680E8DeC218b820ff5056BeB7af",
       abi: [
         {
           type: "constructor",
@@ -246,7 +246,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     DimSumVault: {
-      address: "0x196dBCBb54b8ec4958c959D8949EBFE87aC2Aaaf",
+      address: "0xe1DA8919f262Ee86f9BE05059C9280142CF23f48",
       abi: [
         {
           type: "constructor",
@@ -1415,31 +1415,54 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {
-        allowance: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        approve: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        asset: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        balanceOf: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        convertToAssets: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        convertToShares: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        decimals: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        deposit: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        maxDeposit: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        maxMint: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        maxRedeem: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        maxWithdraw: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        allowance:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        approve:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        asset:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        balanceOf:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        convertToAssets:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        convertToShares:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        decimals:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        deposit:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        maxDeposit:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        maxMint:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        maxRedeem:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        maxWithdraw:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
         mint: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
         name: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        previewDeposit: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        previewMint: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        previewRedeem: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        previewWithdraw: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        redeem: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        symbol: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        totalAssets: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        totalSupply: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        transfer: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        transferFrom: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
-        withdraw: "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        previewDeposit:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        previewMint:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        previewRedeem:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        previewWithdraw:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        redeem:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        symbol:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        totalAssets:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        totalSupply:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        transfer:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        transferFrom:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        withdraw:
+          "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
       },
     },
   },
