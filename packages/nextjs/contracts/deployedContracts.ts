@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     STRANGE: {
-      address: "0x700b6A60ce7EaaEA56F065753d8dcB9653dbAD35",
+      address: "0x8ce361602B935680E8DeC218b820ff5056BeB7af",
       abi: [
         {
           type: "constructor",
@@ -246,7 +246,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     DimSumVault: {
-      address: "0xb19b36b1456E65E3A6D514D3F715f204BD59f431",
+      address: "0xe1DA8919f262Ee86f9BE05059C9280142CF23f48",
       abi: [
         {
           type: "constructor",
