@@ -89,7 +89,7 @@ const Home: NextPage = () => {
               try {
                 await writeDimSumVaultAsync({
                   functionName: "stake",
-                  args: [BigInt(tokensToStake), connectedAddress],
+                  args: [BigInt(tokensToStake) * 10n ** 18n, connectedAddress],
                 });
               } catch (err) {
                 console.error("Error calling stake function:", err);
