@@ -7,10 +7,10 @@ _Dim Sum Vault Frontend_ en una aplicación Next.js que sirve como frontend para
 El objetivo es proveer la interfaz web para interactuar con operación _Stake_ de la bóveda.
 
 Estamos dando seguimiento a las tareas con integración a GitHub por medio de [_Trello_](https://trello.com/b/oKAhGxl8/dim-sum) :bookmark_tabs:
-  <!-- prettier-ignore -->
-  
 
-![](/resources/dim-sum-vault-use-case.drawio.png) <br>_<small>Diagrama de casos de uso de la bóveda tokenizada Dim Sum Vault<small>_:rice:
+  <!-- prettier-ignore -->
+
+![](/resources/dim-sum-vault-use-case.drawio.png) <br>_<small>Diagrama de casos de uso de la bóveda tokenizada Dim Sum Vault<small>_ :rice:
 
 ## Integrantes del equipo
 
