@@ -1,35 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import type { NextPage } from "next";
 import { formatEther } from "viem";
 import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
-import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
+import { Address, IntegerInput } from "~~/components/scaffold-eth";
+import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
 
-  // const { data: vaultAsset } = useScaffoldReadContract({
-  //   contractName: "DimSumVault",
-  //   functionName: "asset",
-  // });
+  const [tokensToStake, setTokensToStake] = useState<string | bigint>("");
 
-  // useEffect(() => {
-  //   if (vaultAsset) {
-  //     setAssetValue(vaultAsset.toString());
-  //   }
-  // }, [vaultAsset]);
-
-  // const [assetValue, setAssetValue] = useState<string | null>(null);
-
-  // const { data: yourTokenSymbol } = useScaffoldReadContract({
-  //   contractName: "STRANGE",
-  //   functionName: "symbol",
-  //   address: vaultAsset as `0x${string}`,
-  // });
+  const { writeContractAsync: writeDimSumVaultAsync } = useScaffoldWriteContract("DimSumVault");
 
   const { data: yourTokenSymbol } = useScaffoldReadContract({
     contractName: "STRANGE",
@@ -38,6 +21,17 @@ const Home: NextPage = () => {
 
   const { data: yourTokenBalance } = useScaffoldReadContract({
     contractName: "STRANGE",
+    functionName: "balanceOf",
+    args: [connectedAddress],
+  });
+
+  const { data: yourSharesSymbol } = useScaffoldReadContract({
+    contractName: "DimSumVault",
+    functionName: "symbol",
+  });
+
+  const { data: yourSharesBalance } = useScaffoldReadContract({
+    contractName: "DimSumVault",
     functionName: "balanceOf",
     args: [connectedAddress],
   });
@@ -65,14 +59,18 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-          {/* <div>
-            Asset value: <div className="inline-flex items-center justify-center">{assetValue || "Loading..."}</div>
-          </div> */}
+          <div className="text-xl">
+            Your shares balance:{" "}
+            <div className="inline-flex items-center justify-center">
+              {parseFloat(formatEther(yourSharesBalance || 0n)).toFixed(4)}
+              <span className="font-bold ml-1">{yourSharesSymbol}</span>
+            </div>
+          </div>
 
-          {/* Vendor Balances */}
+          {/* Vault Balances */}
           <hr className="w-full border-secondary my-3" />
           <div>
-            Vendor token balance:{" "}
+            Your shares balance:{" "}
             <div className="inline-flex items-center justify-center">
               vendorTokenBalance{/* {Number(formatEther(vendorTokenBalance || 0n)).toFixed(4)} */}
               <span className="font-bold ml-1">vaultAsset</span>
@@ -85,30 +83,37 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        {/* <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contracts
-                </Link>{" "}
-                tab.
-              </p>
-            </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
-              </p>
-            </div>
+        {/* Stake */}
+
+        <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
+          <div className="text-xl">Stake your tokens</div>
+          <div>1 share per token</div>
+
+          <div className="w-full flex flex-col space-y-2">
+            <IntegerInput
+              placeholder="amount of tokens to stake"
+              value={tokensToStake.toString()}
+              onChange={value => setTokensToStake(value)}
+              disableMultiplyBy1e18
+            />
           </div>
-        </div> */}
+
+          <button
+            className="btn btn-secondary mt-2"
+            onClick={async () => {
+              try {
+                await writeDimSumVaultAsync({
+                  functionName: "stake",
+                  args: [BigInt(tokensToStake), connectedAddress],
+                });
+              } catch (err) {
+                console.error("Error calling stake function:", err);
+              }
+            }}
+          >
+            Stake
+          </button>
+        </div>
       </div>
     </>
   );
