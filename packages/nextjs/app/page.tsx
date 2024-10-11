@@ -66,21 +66,6 @@ const Home: NextPage = () => {
               <span className="font-bold ml-1">{yourSharesSymbol}</span>
             </div>
           </div>
-
-          {/* Vault Balances */}
-          <hr className="w-full border-secondary my-3" />
-          <div>
-            Your shares balance:{" "}
-            <div className="inline-flex items-center justify-center">
-              vendorTokenBalance{/* {Number(formatEther(vendorTokenBalance || 0n)).toFixed(4)} */}
-              <span className="font-bold ml-1">vaultAsset</span>
-            </div>
-          </div>
-          <div>
-            {/* Vendor eth balance: {Number(formatEther(vendorEthBalance?.value || 0n)).toFixed(4)} */}
-            Vendor eth balance
-            <span className="font-bold ml-1">ETH</span>
-          </div>
         </div>
 
         {/* Stake */}
