@@ -12,7 +12,7 @@ El objetivo es proveer la interfaz web para interactuar con la operación _**Sta
 
 ## Pruebas unitarias
 
-Se escribieron [pruebas unitarias](packages\foundry\test\DimSumVault.t.sol) para las siguientes funcionalidades principales de la bóveda tokenizada:
+Se escribieron [pruebas unitarias](packages/foundry/test/DimSumVault.t.sol) para las siguientes funcionalidades principales de la bóveda tokenizada:
 
 - Stake
 - Unstake
