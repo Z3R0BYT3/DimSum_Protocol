@@ -1,26 +1,24 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.19;
 
-import "../contracts/MockERC20.sol";
+import "../contracts/Strange.sol";
 import "../contracts/DimSumVault.sol";
 import "./DeployHelpers.s.sol";
 
 
 contract DeployYourContract is ScaffoldETHDeploy {
-  // use `deployer` from `ScaffoldETHDeploy`
-
-  
-
   function run() external ScaffoldEthDeployerRunner {
+    // Deploy STRANGE token
+    STRANGE strangeToken = new STRANGE(10000000000000000000000); // 10,000
 
-    MockERC20 mockERC20 = new MockERC20(10000000000000000000); //10_000 tokens
+    address recipient = 0x57A6583F0aB367809ea6475C2452264789817440;
+    uint256 amount = 100 * 10 ** 18; // 100 tokens, assuming 18 decimals
 
-    address recipient = 0x57A6583F0aB367809ea6475C2522647898175555; // dummy address
-    uint256 amount = 100 * 10 ** 18;
-
-    bool success = mockERC20.transfer(recipient, amount);
+    // Transfer tokens to dummy wallet in frontend
+    bool success = strangeToken.transfer(recipient, amount);
     require(success, "Transfer failed");
 
+    // Deploy DimSumVault
     DimSumVault vaultContract = new DimSumVault(ERC20(address(strangeToken)));
 
     console.logString(
@@ -28,5 +26,11 @@ contract DeployYourContract is ScaffoldETHDeploy {
         "DimSumVault deployed at: ", vm.toString(address(vaultContract))
       )
     );
+
+    // Approve vault to spend tokens on behalf of recipient
+    // vm.startPrank(recipient);
+    // success = strangeToken.approve(address(vaultContract), amount);
+    // require(success, "Approval failed");
+    // vm.stopPrank();
   }
 }
