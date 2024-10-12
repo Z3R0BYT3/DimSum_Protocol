@@ -1,1 +1,4 @@
 forge create --rpc-url https://rpc2.sepolia.org --private-key <REPLACE-ME-FOR-PRIVATE-KEY> packages/foundry/contracts/DimSumVault.sol:DimSumVault --remappings @openzeppelin/contracts/=packages/foundry/lib/openzeppelin-contracts/contracts --constructor-args "REPLACE-ME-FOR-TOKEN-ADDRESS" --etherscan-api-key <REPLACE-ME-FOR-SEPOLIA-API-KEY> --verify  packages/foundry/contracts/DimSumVault.sol
+
+
+forge verify-contract --chain-id 11155111 0x082c7d9448FFC9A596b00e99346e14137a30Fd44 DimSumVault --etherscan-api-key 6K3F2I2ZEC3A47EXRNFYTNTT7TSJMUXE1B --watch --constructor-args "0x0000000000000000000000007edde69d363fce3a8b39f9531daf44dd20f46c09"
