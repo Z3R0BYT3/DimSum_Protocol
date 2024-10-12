@@ -11,7 +11,7 @@ contract DeployYourContract is ScaffoldETHDeploy {
     // Deploy STRANGE token
     STRANGE strangeToken = new STRANGE(10000000000000000000000); // 10,000
 
-    address recipient = 0x57A6583F0aB367809ea6475C2452264789817440;
+    address recipient = 0x1d44b5731Bc33A7D9b910d9bA06BF50DA67792d7;
     uint256 amount = 100 * 10 ** 18; // 100 tokens, assuming 18 decimals
 
     // Transfer tokens to dummy wallet in frontend

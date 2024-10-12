@@ -11,6 +11,7 @@ const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
 
   const [tokensToStake, setTokensToStake] = useState<string | bigint>("");
+  const [tokensToUnStake, setTokensToUnStake] = useState<string | bigint>("");
 
   const { writeContractAsync: writeDimSumVaultAsync } = useScaffoldWriteContract("DimSumVault");
 
@@ -97,6 +98,39 @@ const Home: NextPage = () => {
             }}
           >
             Stake
+          </button>
+        </div>
+
+
+        {/* UnStake */}
+
+        <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
+          <div className="text-xl">UnStake your assets</div>
+          <div>1 share per token</div>
+
+          <div className="w-full flex flex-col space-y-2">
+            <IntegerInput
+              placeholder="amount of assets to unstake"
+              value={tokensToUnStake.toString()}
+              onChange={value => setTokensToUnStake(value)}
+              disableMultiplyBy1e18
+            />
+          </div>
+
+          <button
+            className="btn btn-secondary mt-2"
+            onClick={async () => {
+              try {
+                await writeDimSumVaultAsync({
+                  functionName: "unstake",
+                  args: [BigInt(tokensToUnStake) * 10n ** 18n, connectedAddress, connectedAddress],
+                });
+              } catch (err) {
+                console.error("Error calling unstake function:", err);
+              }
+            }}
+          >
+            UnStake
           </button>
         </div>
       </div>
