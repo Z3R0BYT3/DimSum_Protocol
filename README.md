@@ -22,7 +22,7 @@ Se escribieron [pruebas unitarias](packages/foundry/test/DimSumVault.t.sol) para
 
 - [STRANGE Token (asset de la bóveda)](https://sepolia.etherscan.io/address/0x7EdDe69d363fCE3a8B39f9531Daf44dd20f46c09)
 
-- [Dim Sum Vault](https://sepolia.etherscan.io/address/0x61568dc66EfB32796fb9d77d863c105723f9EbAC)
+- [DimSum Vault](https://sepolia.etherscan.io/address/0x082c7d9448ffc9a596b00e99346e14137a30fd44)
 
 ## Herramientas de desarrollo
 
