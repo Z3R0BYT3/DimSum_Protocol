@@ -4,7 +4,7 @@
 
 _Dim Sum Vault Frontend_ en una aplicación Next.js que sirve como frontend para la bóveda tokenizada [_Dim Sum Vault_](https://github.com/ccalvarez/dim-sum-vault) :rice: basada en el estándar ERC-4626, cuyo contrato Solidity se encuentra desplegado en la red de pruebas Ethereum Sepolia Testnet.
 
-El objetivo es proveer la interfaz web para interactuar con la operación _**Stake**_ de la bóveda.
+El objetivo es proveer la interfaz web para interactuar con la operaciones _**Stake, Unstake**_ y _**Redeem**_ de la bóveda.
 
   <!-- prettier-ignore -->
 
@@ -22,7 +22,21 @@ Se escribieron [pruebas unitarias](packages/foundry/test/DimSumVault.t.sol) para
 
 - [STRANGE Token (asset de la bóveda)](https://sepolia.etherscan.io/address/0x7EdDe69d363fCE3a8B39f9531Daf44dd20f46c09)
 
-- [DimSum Vault](https://sepolia.etherscan.io/address/0x082c7d9448ffc9a596b00e99346e14137a30fd44)
+- [Dim Sum Vault](https://sepolia.etherscan.io/address/0x082c7d9448ffc9a596b00e99346e14137a30fd44)
+
+## Instrucciones para el despliegue y verificación en Etherscan
+
+Despliegue del contrato
+
+```sh
+forge create --rpc-url https://rpc2.sepolia.org --private-key <REPLACE-ME-FOR-PRIVATE-KEY> packages/foundry/contracts/DimSumVault.sol:DimSumVault --remappings @openzeppelin/contracts/=packages/foundry/lib/openzeppelin-contracts/contracts --constructor-args "REPLACE-ME-FOR-TOKEN-ADDRESS" --etherscan-api-key <REPLACE-ME-FOR-ETHERSCAN-API-KEY>
+```
+
+Verificación del contrato
+
+```sh
+forge verify-contract --chain-id 11155111 <REPLACE-ME-FOR-VAULT-ADDRESS> DimSumVault --etherscan-api-key <REPLACE-ME-FOR-ETHERSCAN-API-KEY> --watch --constructor-args "0x0000000000000000000000007edde69d363fce3a8b39f9531daf44dd20f46c09"
+```
 
 ## Herramientas de desarrollo
 
