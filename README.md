@@ -38,6 +38,20 @@ Verificación del contrato
 forge verify-contract --chain-id 11155111 <REPLACE-ME-FOR-VAULT-ADDRESS> DimSumVault --etherscan-api-key <REPLACE-ME-FOR-ETHERSCAN-API-KEY> --watch --constructor-args "0x0000000000000000000000007edde69d363fce3a8b39f9531daf44dd20f46c09"
 ```
 
+## Instrucciones para la publicación del frontend en Vercel
+
+Generar el build para producción
+
+```sh
+yarn next:build
+```
+
+Publicar en Vercel
+
+```sh
+yarn vercel
+```
+
 ## Herramientas de desarrollo
 
 Decidimos utilizar las siguientes herramientas de desarrollo del ecosistema de Ethereum:
