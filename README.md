@@ -4,7 +4,7 @@
 
 _Dim Sum Vault Frontend_ en una aplicación Next.js que sirve como frontend para la bóveda tokenizada [_Dim Sum Vault_](https://github.com/ccalvarez/dim-sum-vault) :rice: basada en el estándar ERC-4626, cuyo contrato Solidity se encuentra desplegado en la red de pruebas Ethereum Sepolia Testnet.
 
-El objetivo es proveer la interfaz web para interactuar con la operaciones _**Stake, Unstake**_ y _**Redeem**_ de la bóveda.
+El objetivo es proveer la interfaz web para interactuar con las operaciones _**Stake, Unstake**_ y _**Redeem**_ de la bóveda.
 
   <!-- prettier-ignore -->
 
